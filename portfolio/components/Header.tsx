@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import Link from 'next/link';
+import { MdOutlineMailOutline } from "react-icons/md";
+
 // import { Social } from "../typings";
 
-// type Props = {
-//     socials: Social[]
-// }
+type Props = {
+    
+}
 
-export default function Header() {
+export default function Header({}: Props) {
     const [isClient, setIsClient] = useState(false);
 
     //Client side rendering only to correct issue with SocialIcon
@@ -21,26 +23,20 @@ export default function Header() {
             <div className="flex flex-row items-center">
                 {/* Render Social Icons only on the client */}
                 <a href="https://x.com/Steves314" target="" rel="">
-                    <FaXTwitter size={50} />
+                    <FaXTwitter size={25} />
                 </a>
                 <a href="https://www.linkedin.com/in/steve-susanibar" target="" rel="">
-                    <FaLinkedin size={50} />
+                    <FaLinkedin size={25} />
                 </a>
+                </div>
 
-            </div>
 
-
-            {/* <Link href="#contact">
+            <Link href="#contact">
                 <div className="flex flex-row items-center text-gray-300 cursor-pointer">
-                        <SocialIcon
-                            className="cursor-pointer"
-                            network="email"
-                            fgColor="gray"
-                            bgColor="transparent"
-                        />
+                    <MdOutlineMailOutline size={25}/>
                     <p className="uppercase hidden md:inline-flex text-sm text-gray-400">Get In Touch</p>
                 </div>
-            </Link> */}
+            </Link>
         </header>
     );
 }

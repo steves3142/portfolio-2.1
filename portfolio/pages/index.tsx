@@ -3,12 +3,32 @@
 import Header from '@/components/Header';
 import type { GetStaticProps } from 'next';
 import Head from 'next/head'
+import Hero from '@/components/Hero';
 
 const Home = () => {
   return (
-    <div className="bg-">
+    <div className="bg-[rgb(36,36,36)] text-white h-screen">
+      <Head >
+        <title className="text-black">Steve's Portfolio</title>
+      </Head>
+
       <Header />
-      <h1 className="text-black">Steve's Portfolio</h1>
+
+      {/*Hero */}
+      <section id="hero">
+        <Hero />
+      </section>
+
+
+      {/*About */}
+
+      {/*Experience */}
+
+      {/*Skills */}
+
+      {/* Projects */}
+
+      {/* Contact Me */}
     </div>
   )
 }
