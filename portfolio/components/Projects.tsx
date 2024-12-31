@@ -1,12 +1,12 @@
 import React from 'react';
-// import { Project } from '../typings';
-// import { urlFor } from '../sanity';
+import { Project } from '../typings';
+import { urlFor } from '../sanity';
 
 type Props = {
-    // projects: Project[];
+    projects: Project[];
 }
 
-function Projects({ }: Props) {
+function Projects({ projects }: Props) {
     return (
         <div className="h-screen relative flex overflow-hidden flex-col text-left md:flew-row max-w-full justify-evenly mx-auto items-center z-0">
             <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
@@ -14,7 +14,7 @@ function Projects({ }: Props) {
             </h3>
 
             <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#0af7bc]/80">
-                {/* {projects.map((project, i) => (
+                {projects.map((project, i) => (
                     <div key={project._id} className="w-25 h-25 flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44">
                         <img
                             src={urlFor(project?.image).url()}
@@ -46,7 +46,7 @@ function Projects({ }: Props) {
                             </p>
                         </div>
                     </div>
-                ))} */}
+                ))}
             </div>
 
             <div className="w-full absolute top-[30%] bg-[#0af7bc]/10 left-0 h-[500px] -skew-y-12" />
