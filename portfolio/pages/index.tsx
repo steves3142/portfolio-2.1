@@ -59,15 +59,6 @@ const Home = ({pageInfo, experiences, projects, skills, socials}: Props) => {
   )
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   // Static props logic
-//   return {
-//     props: {
-//       // props here
-//     },
-//   }
-// }
-
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
