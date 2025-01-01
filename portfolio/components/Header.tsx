@@ -5,7 +5,6 @@ import { FaGithub } from "react-icons/fa"; // Import FaGithub
 import Link from 'next/link';
 import { MdOutlineMailOutline } from "react-icons/md";
 import { fetchSocial } from '../utils/fetchSocials'; // Import the fetchSocial function
-import { Social } from "../typings";
 
 // Define a mapping for the icons with the correct type
 const iconMapping: { [key: string]: React.ComponentType<React.SVGProps<SVGSVGElement>> } = {
