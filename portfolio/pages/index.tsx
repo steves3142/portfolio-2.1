@@ -12,18 +12,24 @@ import { fetchPageInfo } from '../utils/fetchPageInfo';
 import { fetchExperiences } from '../utils/fetchExperiences';
 import { fetchSkills } from '../utils/fetchSkills';
 import { fetchProjects } from '../utils/fetchProjects';
-import { fetchSocial } from '../utils/fetchSocials';
-
+import { Metadata } from 'next';
 
 type Props = {
   pageInfo: PageInfo;
   experiences: Experience[];
   skills: Skill[];
   projects: Project[];
-  socials: Social[]; 
 }
 
-const Home = ({pageInfo, experiences, projects, skills, socials}: Props) => {
+export const metadata: Metadata = {
+  title: "Portfolio Page",
+  robots: {
+    index: false, 
+    follow: true,
+  }
+}
+
+const Home = ({pageInfo, experiences, projects, skills}: Props) => {
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#0af7bc]/80">
       <Head>
@@ -66,7 +72,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const experiences: Experience[] = await fetchExperiences(); 
   const skills: Skill[] = await fetchSkills();
   const projects: Project[] = await fetchProjects(); 
-  const socials: Social[] = await fetchSocial();
 
   return {
     props: {
@@ -74,7 +79,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       experiences,
       skills,
       projects,
-      socials,
     },
     // Next.js will attempt to re-generate the page:
     //- When a request comes in 
