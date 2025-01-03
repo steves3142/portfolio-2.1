@@ -13,12 +13,13 @@ import { fetchExperiences } from '../utils/fetchExperiences';
 import { fetchSkills } from '../utils/fetchSkills';
 import { fetchProjects } from '../utils/fetchProjects';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 type Props = {
-  pageInfo: PageInfo;
-  experiences: Experience[];
-  skills: Skill[];
-  projects: Project[];
+  pageInfo: PageInfo | null;
+  experiences: Experience[] | null;
+  skills: Skill[] | null;
+  projects: Project[] | null;
 }
 
 export const metadata: Metadata = {
@@ -29,7 +30,12 @@ export const metadata: Metadata = {
   }
 }
 
-const Home = ({pageInfo, experiences, projects, skills}: Props) => {
+const Home = ({ pageInfo, experiences, projects, skills }: Props) => {
+  // If any of the props are null, show a 404 page
+  if (!pageInfo || !experiences || !skills || !projects) {
+    notFound();  // This triggers the 404 page
+  }
+
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#0af7bc]/80">
       <Head>
@@ -68,21 +74,35 @@ const Home = ({pageInfo, experiences, projects, skills}: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo(); 
-  const experiences: Experience[] = await fetchExperiences(); 
-  const skills: Skill[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects(); 
+  try {
+    const pageInfo: PageInfo = await fetchPageInfo(); 
+    const experiences: Experience[] = await fetchExperiences(); 
+    const skills: Skill[] = await fetchSkills();
+    const projects: Project[] = await fetchProjects(); 
 
-  return {
-    props: {
-      pageInfo,
-      experiences,
-      skills,
-      projects,
-    },
-    // Next.js will attempt to re-generate the page:
-    //- When a request comes in 
-    //- At most once every 10 seconds
-    revalidate: 10,
-  };
+    // If any data is missing or invalid, return a 404 page
+    if (!pageInfo || !experiences || !skills || !projects) {
+      return {
+        notFound: true,  // Triggers the 404 page
+      };
+    }
+
+    return {
+      props: {
+        pageInfo,
+        experiences,
+        skills,
+        projects,
+      },
+      // Enable ISR (Incremental Static Regeneration)
+      revalidate: 10,
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+
+    // If there's an error fetching the data, return a 404 page
+    return {
+      notFound: true,  // Triggers the 404 page
+    };
+  }
 };
