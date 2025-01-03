@@ -7,7 +7,7 @@ import WorkExperience from '@/components/WorkExperience';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import ContactMe from '@/components/ContactMe';
-import { Experience, PageInfo, Project, Skill, Social } from "../typings" 
+import { Experience, PageInfo, Project, Skill } from "../typings" 
 import { fetchPageInfo } from '../utils/fetchPageInfo';
 import { fetchExperiences } from '../utils/fetchExperiences';
 import { fetchSkills } from '../utils/fetchSkills';
