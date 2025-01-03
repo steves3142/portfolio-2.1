@@ -9,13 +9,11 @@ type Inputs = {
     message: string; 
 }
 
-type Props = {}; 
-
-function ContactMe({ }: Props) {
+function ContactMe() {
     const { 
         register, 
         handleSubmit, 
-        formState: { errors },
+        formState: { },
     } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = (formData) => {
