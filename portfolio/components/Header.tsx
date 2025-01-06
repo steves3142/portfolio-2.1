@@ -35,6 +35,7 @@ export default function Header() {
         <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
             <div className="flex flex-row items-center">
                 {socials.map((social) => {
+                    // console.log(social.url)
                     const Icon = iconMapping[social.title]; // Get the corresponding icon component from the title
                     return (
                         <a key={social.url} href={social.url} target="_blank" rel="noopener noreferrer">

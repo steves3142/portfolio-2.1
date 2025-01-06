@@ -21,10 +21,10 @@ export default function Hero({ pageInfo }: Props) {
     });
 
     // Check pageInfo data
-    console.log("Page Info:", pageInfo); // Log the whole object to inspect
+    // console.log("Page Info:", pageInfo); 
 
     const imageUrl = pageInfo?.heroImage ? urlFor(pageInfo.heroImage).url() : '';
-    console.log("Hero Image URL:", imageUrl); // Debugging line
+    // console.log("Hero Image URL:", imageUrl);
 
     return (
         <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
@@ -45,9 +45,9 @@ export default function Hero({ pageInfo }: Props) {
             </h1>
 
             <div className="pt-5">
-                <Link href="#about">
+                {/* <Link href="#about"> */}
                     <button className="heroButton">About</button>
-                </Link>
+                {/* </Link> */}
                 <Link href="#experience">
                     <button className="heroButton">Experience</button>
                 </Link>
