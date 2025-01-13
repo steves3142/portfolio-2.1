@@ -33,7 +33,7 @@ function ExperienceCard({ experience }: Props) {
               key={technology._id}
               className="h-8 w-8 sm:h-10 sm:w-10 rounded-full"
               src={urlFor(technology.image).url()}
-              alt={technology.name}
+              alt=""
             />
           ))}
         </div>
