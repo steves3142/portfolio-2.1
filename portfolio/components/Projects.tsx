@@ -41,7 +41,7 @@ function Projects({ projects }: Props) {
                                         className="h-8 w-8 sm:h-10 sm:w-10"
                                         key={technology._id}
                                         src={urlFor(technology.image).url()}
-                                        alt={technology.name}
+                                        alt=""
                                     />
                                 ))}
                             </div>
