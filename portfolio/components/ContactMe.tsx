@@ -28,17 +28,17 @@ function ContactMe() {
             </h3>
 
             <div className="flex flex-col space-y-8 sm:space-y-10 mt-20 sm:mt-24">
-                {/* <h4 className="text-3xl sm:text-4xl font-semibold text-center">
+                <h4 className="text-3xl sm:text-4xl font-semibold text-center">
                     I have got just what you need.{" "}
                     <span className="decoration-[#0af7bc]/50 underline">Let’s Talk</span>
-                </h4> */}
+                </h4>
 
                 {/* Contact Info Section */}
                 <div className="space-y-8 sm:space-y-10">
-                    <div className="flex items-center space-x-4 sm:space-x-5 justify-center">
+                    {/* <div className="flex items-center space-x-4 sm:space-x-5 justify-center">
                         <PhoneIcon className="text-[#0af7bc] h-8 w-8 animate-pulse" />
                         <p className="text-xl sm:text-2xl">+8622452593</p>
-                    </div>
+                    </div> */}
 
                     <div className="flex items-center space-x-4 sm:space-x-5 justify-center">
                         <EnvelopeIcon className="text-[#0af7bc] h-8 w-8 animate-pulse" />
